@@ -1,13 +1,17 @@
 # consul2zabbix
 get docker apps and ports from consul services catelog
 
-- originaly developed and tested on:
+originaly developed and tested on:
+
  consul 0.8.0 / 0.9.3
+
  gliderlabs/registrator
+
  CentOS 7.x x86_64
+
  docker 1.12
 
-# installation
+# Installation
 
 1. create containers with consul and registrator
 
