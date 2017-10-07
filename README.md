@@ -1,7 +1,9 @@
 # consul2zabbix
 get docker apps and ports from consul services catelog
 
-originaly developed and tested on:
+# Limitations
+
+- originaly developed and tested on:
 
  consul 0.8.0 / 0.9.3
 
