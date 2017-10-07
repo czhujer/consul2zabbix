@@ -1,0 +1,15 @@
+version: '2'
+services:
+  registrator:
+    image: gliderlabs/registrator:latest
+    container_name: sf-registrator-s1
+    hostname: sf-registrator-s1
+    command: "-internal consul://consul:8500"
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock"
+    networks:
+      - docker_sf_infra_1
+
+networks:
+  docker_sf_infra_1:
+    external: true

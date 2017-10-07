@@ -1,0 +1,33 @@
+version: '2'
+services:
+  consul:
+    image: consul:latest
+    container_name: sf-consul-s1
+    hostname: sf-consul-s1
+    volumes:
+    - data:/consul/data:Z
+    command: "consul agent -server -bootstrap -client=0.0.0.0 -data-dir /consul/data -ui"
+    ports:
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:53"
+    networks:
+      - docker_sf_infra_1
+    environment:
+      SERVICE_8500_NAME: consul-admin
+      SERVICE_8500_TAGS: 0.0.1
+      SERVICE_8400_IGNORE: 'true'
+      SERVICE_8600_IGNORE: 'true'
+      SERVICE_53_IGNORE: 'true'
+      SERVICE_8300_IGNORE: 'true'
+      SERVICE_8301_IGNORE: 'true'
+      SERVICE_8302_IGNORE: 'true'
+
+networks:
+  docker_sf_infra_1:
+    external: true
+
+volumes:
+  data:
+    driver: local
+
